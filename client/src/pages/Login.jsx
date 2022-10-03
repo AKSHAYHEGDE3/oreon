@@ -15,7 +15,7 @@ import { Link } from 'react-router-dom';
 import { publicRequest } from '../axios';
 import { setUser } from '../redux/reducers/auth';
 import { useDispatch } from 'react-redux'
-import { useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
 
@@ -23,6 +23,7 @@ const Login = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
+    const [show, setShow] = useState(false)
     const dispatch = useDispatch()
     let navigate = useNavigate();
 
@@ -35,10 +36,10 @@ const Login = () => {
         e.preventDefault();
         console.log(email, password)
         try {
-            const res = await publicRequest.post('/login', {email,password})
+            const res = await publicRequest.post('/login', { email, password })
             console.log(res.data)
             dispatch(setUser(res.data))
-            if(checked){
+            if (checked) {
                 localStorage.setItem("token", res.data.accessToken)
             }
             setError('')
@@ -64,14 +65,18 @@ const Login = () => {
                     />
                     <TextField
                         name="password"
-                        type="password"
+                        type={show ? "text" : "password"}
                         label="Password"
                         required
                         className='inpts'
                         InputProps={{
                             endAdornment: (
                                 <InputAdornment position="end">
-                                    {<VisibilityIcon />}
+                                    {
+                                        show ?
+                                        <VisibilityIcon style={{cursor:'pointer'}} onClick={() => setShow(!show)} />:
+                                        <VisibilityOffIcon style={{cursor:'pointer'}} onClick={() => setShow(!show)} />
+                                    }
                                 </InputAdornment>
                             ),
                         }}
@@ -83,11 +88,12 @@ const Login = () => {
                         label="Remember me"
                     /><br />
                     <p>Dont have an Account?<Link to='/register'><span style={{
-                        textDecoration:'underline',marginLeft:'2%'
+                        textDecoration: 'underline', marginLeft: '2%'
                     }}>Signup</span></Link></p>
                     <Button className='btn' type='submit' variant="contained">Log In</Button>
                 </form>
             </div>
+            <p style={{color:'red',textAlign:'center'}}>{error}</p>
         </div>
     )
 }

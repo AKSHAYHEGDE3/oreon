@@ -23,6 +23,7 @@ const Register = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
+    const [show, setShow] = useState(false)
     const dispatch = useDispatch()
     let navigate = useNavigate();
 
@@ -73,7 +74,11 @@ const Register = () => {
                         InputProps={{
                             endAdornment: (
                                 <InputAdornment position="end">
-                                    {<VisibilityIcon />}
+                                    {
+                                        show ?
+                                        <VisibilityIcon style={{cursor:'pointer'}} onClick={() => setShow(!show)} />:
+                                        <VisibilityOffIcon style={{cursor:'pointer'}} onClick={() => setShow(!show)} />
+                                    }
                                 </InputAdornment>
                             ),
                         }}
@@ -90,7 +95,7 @@ const Register = () => {
                     <Button className='btn' type='submit' variant="contained">Register</Button>
                 </form>
             </div>
-            <p>{error}</p>
+            <p style={{color:'red',textAlign:'center'}}>{error}</p>
         </div>
     )
 }
