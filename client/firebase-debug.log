@@ -1,0 +1,14 @@
+[debug] [2022-10-03T10:22:09.797Z] ----------------------------------------------------------------------
+[debug] [2022-10-03T10:22:09.802Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-10-03T10:22:09.803Z] CLI Version:   11.13.0
+[debug] [2022-10-03T10:22:09.804Z] Platform:      win32
+[debug] [2022-10-03T10:22:09.804Z] Node Version:  v16.17.0
+[debug] [2022-10-03T10:22:09.806Z] Time:          Mon Oct 03 2022 15:52:09 GMT+0530 (India Standard Time)
+[debug] [2022-10-03T10:22:09.806Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-10-03T10:22:09.992Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-10-03T10:22:09.993Z] > authorizing via signed-in user (akshayhegde158@gmail.com)
+[debug] [2022-10-03T10:22:09.994Z] [iam] checking project oreon-dbea7 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-10-03T10:22:09.999Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/oreon-dbea7:testIamPermissions [none]
+[debug] [2022-10-03T10:22:10.000Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/oreon-dbea7:testIamPermissions x-goog-quota-user=projects/oreon-dbea7
+[debug] [2022-10-03T10:22:10.000Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/oreon-dbea7:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}

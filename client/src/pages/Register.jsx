@@ -67,7 +67,7 @@ const Register = () => {
                     />
                     <TextField
                         name="password"
-                        type="password"
+                        type={show?"text":"password"}
                         label="Password"
                         required
                         className='inpts'
